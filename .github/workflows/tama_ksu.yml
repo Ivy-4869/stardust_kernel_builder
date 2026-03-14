@@ -12,17 +12,21 @@ jobs:
       fail-fast: false
       matrix:
         codename:
+          - akari
+          - akatsuki
+          - apollo
+          - aurora
           - akari_kddi
           - akatsuki_kddi
-          - aurora_kddi
           - apollo_dcm
+          - aurora_kddi
 
     env:
       BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
       CHAT_ID: ${{ secrets.CHAT_ID }}
-      KERNEL_VER: Alpha7
+      KERNEL_VER: Stardust-v2.6
       KERNEL_URL: https://github.com/Sorayukii/stardust_kernel_sony_sdm845
-      KERNEL_BRANCH: next11
+      KERNEL_BRANCH: master
       CLANG_URL: https://gitlab.com/Sorayukii/aosp-clang.git
       CLANG_BRANCH: 17
       KSU_URL: https://raw.githubusercontent.com/backslashxx/KernelSU/master/kernel/setup.sh
@@ -144,7 +148,7 @@ jobs:
 
         send_telegram_message "🔨 Starting kernel compilation for ${{ matrix.codename }} on branch $KERNEL_BRANCH"
 
-        export KBUILD_BUILD_USER=test
+        export KBUILD_BUILD_USER=ivy
         export KBUILD_BUILD_HOST="$KERNEL_COMMIT_ID"
         export PATH="$CLANG_DIR/bin:$PATH"
 
