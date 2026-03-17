@@ -23,10 +23,10 @@ jobs:
     env:
       BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
       CHAT_ID: ${{ secrets.CHAT_ID }}
-      KERNEL_VER: Stardust-v2.6
+      KERNEL_VER: Stardust-v2.7
       KERNEL_URL: https://github.com/Sorayukii/stardust_kernel_sony_sdm845
       KERNEL_BRANCH: master
-      CLANG_URL: https://gitlab.com/Sorayukii/aosp-clang.git
+      CLANG_URL: https://gitlab.com/kei-space/clang/r547379.git
       CLANG_BRANCH: 17
       KSU_URL: https://raw.githubusercontent.com/Sorayukii/KernelSU-Next/stable/kernel/setup.sh
       KSU_BRANCH: hookless
