@@ -23,11 +23,11 @@ jobs:
     env:
       BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
       CHAT_ID: ${{ secrets.CHAT_ID }}
-      KERNEL_VER: Stardust-v2.6
+      KERNEL_VER: Stardust-v2.7
       KERNEL_URL: https://github.com/Sorayukii/stardust_kernel_sony_sdm845
-      KERNEL_BRANCH: susfs-inline
-      CLANG_URL: https://gitlab.com/Sorayukii/aosp-clang.git
-      CLANG_BRANCH: 17
+      KERNEL_BRANCH: master
+      CLANG_URL: https://gitlab.com/kei-space/clang/r547379.git
+      CLANG_BRANCH: master
       KPM_URL: https://github.com/SukiSU-Ultra/SukiSU_KernelPatch_patch/releases/latest/download/patch_linux
       KSU_URL: https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh
       KSU_BRANCH: main
@@ -78,8 +78,7 @@ jobs:
         DEFCONFIG_PATH="arch/arm64/configs/$CONFIG_NAME"
         echo "CONFIG_KSU=y" >> "${DEFCONFIG_PATH}"
         echo "CONFIG_KSU_SUSFS=y" >> "${DEFCONFIG_PATH}"
-        echo "CONFIG_KSU_MULTI_MANAGER_SUPPORT=y" >> "${DEFCONFIG_PATH}"
-        #echo "CONFIG_KPM=y" >> "${DEFCONFIG_PATH}"
+        echo "CONFIG_KPM=y" >> "${DEFCONFIG_PATH}"
         sed -i "s/CONFIG_LOCALVERSION=\"-perf\"/CONFIG_LOCALVERSION=\"-$KERNEL_VER\"/" "$DEFCONFIG_PATH"
         make O=out ARCH=arm64 "$CONFIG_NAME"
         mv out/.config "$DEFCONFIG_PATH"
