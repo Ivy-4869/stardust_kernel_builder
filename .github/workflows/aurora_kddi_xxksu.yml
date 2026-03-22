@@ -37,10 +37,9 @@ jobs:
 
     - name: Setup swapfile
       run: |
-        #sudo fallocate -l 4G /swapfile
-        #sudo chmod 600 /swapfile
-        #sudo mkswap /swapfile
-        #sudo swapon /swapfile
+        sudo swapoff /swapfile
+        sudo swapon --priority 100 /swapfile
+        sudo sysctl vm.swappiness=100
         sudo swapon --show
 
     - name: Setup github account
