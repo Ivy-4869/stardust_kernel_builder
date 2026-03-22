@@ -38,6 +38,9 @@ jobs:
     - name: Setup swapfile
       run: |
         sudo swapoff /swapfile
+        sudo fallocate -l 6G /swapfile
+        sudo chmod 600 /swapfile
+        sudo mkswap /swapfile
         sudo swapon --priority 100 /swapfile
         sudo sysctl vm.swappiness=100
         sudo swapon --show
