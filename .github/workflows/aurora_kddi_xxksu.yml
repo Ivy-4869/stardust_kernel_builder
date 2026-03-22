@@ -33,8 +33,19 @@ jobs:
           gcc-arm-linux-gnueabi software-properties-common build-essential \
           libarchive-tools gcc-aarch64-linux-gnu libssl-dev libffi-dev \
           libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev \
-          libsqlite3-dev make gcc pigz python3 cpio lld systemd-zram-generator
-        sudo systemctl start systemd-zram-setup@zram0.service
+          libsqlite3-dev make gcc pigz python3 cpio lld
+
+    - name: Setup ZRAM
+      run: |
+        sudo modprobe zram
+        total_mem=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+        zram_size=$((total_mem * 1024 / 2))
+        echo $zram_size | sudo tee /sys/block/zram0/disksize
+        sudo mkswap /dev/zram0
+        sudo swapon /dev/zram0
+        echo lz4 | sudo tee /sys/block/zram0/comp_algorithm
+        echo 100 | sudo tee /proc/sys/vm/swappiness
+        swapon --show
 
     - name: Setup github account
       run: |
