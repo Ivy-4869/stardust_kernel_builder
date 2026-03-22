@@ -33,7 +33,9 @@ jobs:
           gcc-arm-linux-gnueabi software-properties-common build-essential \
           libarchive-tools gcc-aarch64-linux-gnu libssl-dev libffi-dev \
           libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev \
-          libsqlite3-dev make gcc pigz python3 cpio lld
+          libsqlite3-dev make gcc pigz python3 cpio lld systemd-zram-generator
+        sudo systemctl daemon-reexec
+        sudo systemctl start systemd-zram-setup@zram0.service
 
     - name: Setup github account
       run: |
