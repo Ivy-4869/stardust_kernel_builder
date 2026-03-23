@@ -12,7 +12,7 @@ jobs:
       BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
       CHAT_ID: ${{ secrets.CHAT_ID }}
       KERNEL_VER: LTS
-      KERNEL_BRANCH: binder5.15
+      KERNEL_BRANCH: binder5.4
       KERNEL_URL: https://github.com/Sorayukii/stardust_kernel_sony_sdm845
       ANYKERNEL_URL: https://github.com/Sorayukii/AnyKernel3
       CLANG_URL: https://github.com/PurrrsLitterbox/LLVM-stable/releases/download/llvmorg-22.1.0/clang.tar.zst
