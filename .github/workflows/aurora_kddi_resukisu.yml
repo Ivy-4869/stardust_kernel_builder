@@ -54,7 +54,7 @@ jobs:
       run: |
         cd $KERNEL_DIR
         mkdir -p clang
-        wget -qO- "$CLANG_URL" | tar --zstd -xz - -C clang
+        wget -qO- "$CLANG_URL" | tar --zstd -xf - -C clang
         echo "CLANG_DIR=$KERNEL_DIR/clang" >> $GITHUB_ENV
         
     - name: Set up SukiSU
