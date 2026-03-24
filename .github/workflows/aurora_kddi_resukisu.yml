@@ -54,7 +54,7 @@ jobs:
       run: |
         cd $KERNEL_DIR
         mkdir -p clang
-        wget -qO- "$CLANG_URL" | tar -xz -C clang --strip-components=1
+        wget -qO- "$CLANG_URL" | tar -xz -C clang
         echo "CLANG_DIR=$KERNEL_DIR/clang" >> $GITHUB_ENV
         
     - name: Set up SukiSU
@@ -130,8 +130,8 @@ jobs:
 
         make O="$OUT_DIR" ARCH=arm64 "$CONFIG_NAME"
         make -j$(nproc) O="$OUT_DIR" ARCH=arm64 \
-          CC=clang LD=ld.lld AR=llvm-ar AS=llvm-as NM=llvm-nm \
-          OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip \
+          CC=clang LD=ld.lld AR=llvm-ar AS=llvm-as NM=llvm-nm LLVM=1 \
+          LLVM_IAS=1 OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip \
           CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
           2>&1 | tee -a "$LOG_FILE"
 
