@@ -81,9 +81,8 @@ jobs:
         CONFIG_NAME="tama_${CODENAME}_defconfig"
         DEFCONFIG_PATH="arch/arm64/configs/$CONFIG_NAME"
         echo "CONFIG_KSU_TAMPER_SYSCALL_TABLE=y" >> "${DEFCONFIG_PATH}"
+        echo "CONFIG_BORE=n" >> "${DEFCONFIG_PATH}"
         sed -i "s/CONFIG_LOCALVERSION=\"-perf\"/CONFIG_LOCALVERSION=\"-$KERNEL_VER\"/" "$DEFCONFIG_PATH"
-        sed -i "s/CONFIG_PM_WAKELOCKS_LIMIT=\"0\"/CONFIG_PM_WAKELOCKS_LIMIT=\"100\"/" "$DEFCONFIG_PATH"
-        sed -i "s/CONFIG_PM_WAKELOCKS_GC=\"y\"/CONFIG_PM_WAKELOCKS_GC=\"n\"/" "$DEFCONFIG_PATH"
         make O=out ARCH=arm64 "$CONFIG_NAME"
         mv out/.config "$DEFCONFIG_PATH"
 
