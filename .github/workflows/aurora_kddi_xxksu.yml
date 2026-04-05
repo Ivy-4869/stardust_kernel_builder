@@ -65,8 +65,8 @@ jobs:
         curl -LSs "$KSU_URL" | bash -s $KSU_BRANCH
         sed -i 's/-DKSU_VERSION=[0-9]\+/-DKSU_VERSION=32455/g' KernelSU/kernel/Makefile
         cd KernelSU
-        wget https://github.com/Ivy-4869/KernelSU/commit/87bdba9ba9feee86c43c01b055323aecff4dbbc6.patch
-        patch -p1 <87bdba9ba9feee86c43c01b055323aecff4dbbc6.patch
+        wget https://github.com/Ivy-4869/KernelSU/commit/bedef3f637dfccbe3080c7030fc5916c2f6b307a.patch
+        patch -p1 <bedef3f637dfccbe3080c7030fc5916c2f6b307a.patch
     
     - name: Generate defconfig
       run: |
