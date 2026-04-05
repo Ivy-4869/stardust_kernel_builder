@@ -44,7 +44,7 @@ jobs:
       run: |
         git clone "$KERNEL_URL" -b "$KERNEL_BRANCH" kernel
         cd kernel
-        git reset --hard 320f9d3bb3e7cbed553aa12034fdbdfc927341dd
+        git reset --hard 0d98ac46f3e942ad228a9713fa14cfbf492756bd
         echo "KERNEL_DIR=$(pwd)" >> $GITHUB_ENV
 
     - name: Clone AnyKernel3
@@ -65,8 +65,8 @@ jobs:
         curl -LSs "$KSU_URL" | bash -s $KSU_BRANCH
         sed -i 's/-DKSU_VERSION=[0-9]\+/-DKSU_VERSION=32455/g' KernelSU/kernel/Makefile
         cd KernelSU
-        wget https://github.com/Ivy-4869/KernelSU/commit/6795bdd5258d7e25691dfd12f2148df13a8dc408.patch
-        patch -p1 <6795bdd5258d7e25691dfd12f2148df13a8dc408.patch
+        wget https://github.com/Ivy-4869/KernelSU/commit/feb99d2c159985eb3e7dc69cb6732dea656558dd.patch
+        patch -p1 <feb99d2c159985eb3e7dc69cb6732dea656558dd.patch
     
     - name: Generate defconfig
       run: |
