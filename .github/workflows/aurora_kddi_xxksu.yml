@@ -44,7 +44,7 @@ jobs:
       run: |
         git clone "$KERNEL_URL" -b "$KERNEL_BRANCH" kernel
         cd kernel
-        git reset --hard c325f6f74f7326d4786eec758e8175dd7400f13e
+        git reset --hard 2db36a618b2088c402cf8e1d1eff26f5dfe9c894
         echo "KERNEL_DIR=$(pwd)" >> $GITHUB_ENV
 
     - name: Clone AnyKernel3
@@ -65,8 +65,8 @@ jobs:
         curl -LSs "$KSU_URL" | bash -s $KSU_BRANCH
         sed -i 's/-DKSU_VERSION=[0-9]\+/-DKSU_VERSION=32455/g' KernelSU/kernel/Makefile
         cd KernelSU
-        wget https://raw.githubusercontent.com/Ivy-4869/stardust_kernel_builder/refs/heads/main/0001-xxKSU-kernel-implement-susfs-v2.1.0-De-inlined.patch
-        patch -p1 <0001-xxKSU-kernel-implement-susfs-v2.1.0-De-inlined.patch
+        wget https://github.com/Ivy-4869/KernelSU/commit/feb99d2c159985eb3e7dc69cb6732dea656558dd.patch
+        patch -p1 <feb99d2c159985eb3e7dc69cb6732dea656558dd.patch
     
     - name: Generate defconfig
       run: |
