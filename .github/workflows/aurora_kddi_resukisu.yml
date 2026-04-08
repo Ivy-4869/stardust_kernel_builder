@@ -66,6 +66,7 @@ jobs:
       run: |
         cd $KERNEL_DIR
         wget https://raw.githubusercontent.com/JackA1ltman/NonGKI_Kernel_Build_2nd/refs/heads/mainline/Patches/susfs_inline_hook_patches.sh
+        chmod +x susfs_inline_hook_patches.sh
         ./susfs_inline_hook_patches.sh
 
     - name: Generate defconfig
