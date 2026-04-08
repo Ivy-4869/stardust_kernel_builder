@@ -62,6 +62,12 @@ jobs:
         cd $KERNEL_DIR
         curl -LSs "$KSU_URL" | bash -s $KSU_BRANCH
 
+    - name: Add KSU hooks
+      run: |
+        cd $KERNEL_DIR
+        wget https://raw.githubusercontent.com/JackA1ltman/NonGKI_Kernel_Build_2nd/refs/heads/mainline/Patches/susfs_inline_hook_patches.sh
+        ./susfs_inline_hook_patches.sh
+
     - name: Generate defconfig
       run: |
         cd $KERNEL_DIR
