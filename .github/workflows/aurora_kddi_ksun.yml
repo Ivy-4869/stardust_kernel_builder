@@ -18,7 +18,7 @@ jobs:
       CLANG_URL: https://github.com/greenforce-project/clang-llvm/releases/download/04102023/greenforce-clang-18.0.0-04102023-1050.tar.zst
       CLANG_BRANCH: 17
       KSU_URL: https://raw.githubusercontent.com/Sorayukii/KernelSU-Next/stable/kernel/setup.sh
-      KSU_BRANCH: hookless-new
+      KSU_BRANCH: hookless
 
     steps:
     - name: Checkout workflow repo
