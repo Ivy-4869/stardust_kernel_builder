@@ -23,7 +23,7 @@ jobs:
     env:
       BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
       CHAT_ID: ${{ secrets.CHAT_ID }}
-      KERNEL_VER: Stardust-v2.8
+      KERNEL_VER: Stardust-v2.9
       KERNEL_URL: https://github.com/Sorayukii/stardust_kernel_sony_sdm845
       KERNEL_BRANCH: main
       CLANG_URL: https://gitlab.com/kei-space/clang/r498229b.git
