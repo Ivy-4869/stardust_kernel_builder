@@ -62,7 +62,7 @@ jobs:
       run: |
         cd $KERNEL_DIR
         curl -LSs "$KSU_URL" | bash -s $KSU_BRANCH
-        sed -i 's/-DKSU_VERSION=[0-9]\+/-DKSU_VERSION=32471/g' KernelSU/kernel/Makefile
+        sed -i 's/-DKSU_VERSION=[0-9]\+/-DKSU_VERSION=32475/g' KernelSU/kernel/Makefile
         #cd KernelSU
         #wget https://raw.githubusercontent.com/Ivy-4869/stardust_kernel_builder/refs/heads/main/0001-xxKSU-kernel-implement-susfs-v2.1.0-De-inlined.patch
         #patch -p1 <0001-xxKSU-kernel-implement-susfs-v2.1.0-De-inlined.patch
