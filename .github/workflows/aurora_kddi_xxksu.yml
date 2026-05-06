@@ -18,7 +18,7 @@ jobs:
       CLANG_URL: https://gitlab.com/kei-space/clang/r547379.git
       CLANG_BRANCH: master
       KSU_URL: https://raw.githubusercontent.com/backslashxx/KernelSU/master/kernel/setup.sh
-      KSU_BRANCH: staging
+      KSU_BRANCH: staging-lsm-vmap-unhook
 
     steps:
     - name: Checkout workflow repo
