@@ -72,8 +72,10 @@ jobs:
         cd $KERNEL_DIR
         CONFIG_NAME="tama_${CODENAME}_defconfig"
         DEFCONFIG_PATH="arch/arm64/configs/$CONFIG_NAME"
-        #echo "CONFIG_KPROBES=y" >> "${DEFCONFIG_PATH}"
-        #echo "CONFIG_KRETPROBES=y" >> "${DEFCONFIG_PATH}"
+        echo "CONFIG_KPROBES=y" >> "${DEFCONFIG_PATH}"
+        echo "CONFIG_KRETPROBES=y" >> "${DEFCONFIG_PATH}"
+        echo "CONFIG_KSU=y" >> "${DEFCONFIG_PATH}"
+        echo "CONFIG_KSU_EXTRAS=y" >> "${DEFCONFIG_PATH}"
         echo "CONFIG_KSU_TAMPER_SYSCALL_TABLE=y" >> "${DEFCONFIG_PATH}"
         sed -i "s/CONFIG_LOCALVERSION=\"-Stardust\"/CONFIG_LOCALVERSION=\"-$KERNEL_VER\"/" "$DEFCONFIG_PATH"
         #sed -i "s/^CONFIG_WORKINGSET_PROTECTION=.*/CONFIG_WORKINGSET_PROTECTION=n/" "$DEFCONFIG_PATH"
