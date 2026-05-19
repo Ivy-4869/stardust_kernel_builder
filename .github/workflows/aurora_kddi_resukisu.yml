@@ -18,8 +18,8 @@ jobs:
       CLANG_URL: https://gitlab.com/kei-space/clang/r547379.git
       CLANG_BRANCH: master
       KPM_URL: https://github.com/SukiSU-Ultra/SukiSU_KernelPatch_patch/releases/latest/download/patch_linux
-      KSU_URL: https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh
-      KSU_BRANCH: main
+      KSU_URL: https://raw.githubusercontent.com/Sorayukii/ReSukiSU/refs/heads/personal/kernel/setup.sh
+      KSU_BRANCH: personal
 
     steps:
     - name: Checkout workflow repo
